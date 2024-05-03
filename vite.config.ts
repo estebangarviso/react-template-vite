@@ -44,7 +44,10 @@ export default {
 			[
 				`https://fonts.googleapis.com/css2?family=${FONT_FAMILY}:wght@${FONT_WEIGHTS}&display=swap`,
 			],
-			{ injectAsStyleTag: false },
+			{
+				injectAsStyleTag: false,
+				minifyCss: true,
+			},
 		),
 		pwa({
 			devOptions: {
