@@ -97,5 +97,12 @@
 	"typescript.suggest.autoImports": true,
 	"typescript.tsdk": "node_modules\\typescript\\lib",
 	"typescript.validate.enable": true,
-	"yaml.format.singleQuote": true
+	"yaml.format.singleQuote": true,
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
+	"workbench.editor.customLabels.patterns": {
+		"env/*.env.json": "🔑 ${filename}.${extname}",
+		"env/appsettings.json": "⚙️ ${filename}.${extname}"
+	},
 }

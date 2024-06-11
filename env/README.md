@@ -4,7 +4,7 @@
 
 #### 1.1. Dependencies
 
--   Install **env** library with `npm i -D @calvear/env`.
+-   Install **env** library with `npm i -D @v10e/env`.
 
 #### 1.2. NPM Scripts
 

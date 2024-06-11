@@ -25,7 +25,7 @@ export default {
 					may import previously generated/grouped chunks */
 					react: ['react', 'react-dom'],
 					router: ['react-router'],
-					store: ['jotai'],
+					store: ['zustand'],
 					'lib-feature': ['./src/libs/feature/index.ts'],
 					'lib-router': ['./src/libs/router/index.ts'],
 				},

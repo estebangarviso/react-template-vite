@@ -1,12 +1,16 @@
 {
 	"$schema": "https://json.schemastore.org/stylelintrc.json",
 	"defaultSeverity": "warning",
-	"extends": ["stylelint-config-standard"],
+	"extends": [
+		"stylelint-config-standard",
+		"stylelint-config-standard-scss"
+	],
 	"plugins": [
 		"stylelint-prettier",
 		"stylelint-order",
 		"stylelint-use-nesting",
-		"stylelint-config-rational-order/plugin"
+		"stylelint-config-rational-order/plugin",
+		"stylelint-scss"
 	],
 	"rules": {
 		"alpha-value-notation": "number",
@@ -107,6 +111,32 @@
 		"shorthand-property-no-redundant-values": true,
 		"string-no-newline": true,
 		"unit-no-unknown": true,
-		"value-keyword-case": "lower"
+		"value-keyword-case": "lower",
+		"scss/at-rule-no-unknown": [
+			true,
+			{
+				"ignoreAtRules": [
+					"apply",
+					"each",
+					"function",
+					"if",
+					"include",
+					"layer",
+					"mixin",
+					"responsive",
+					"return",
+					"screen",
+					"tailwind",
+					"variants"
+				]
+			}
+		],
+		"scss/function-no-unknown": [
+			true,
+			{
+				"ignoreFunctions": ["map-get", "theme"]
+			}
+		],
+		"scss/no-global-function-names": null
 	}
 }

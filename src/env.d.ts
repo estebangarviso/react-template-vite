@@ -7,7 +7,7 @@ type MODE = 'development' | 'production' | 'test';
  * @remarks environment variables schema
  */
 interface ImportMetaEnv {
-	readonly APP_ENV: 'dev' | 'release';
+	readonly APP_ENV: 'dev' | 'prod';
 	readonly MODE: MODE;
 	readonly NODE_ENV: MODE;
 

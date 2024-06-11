@@ -5,6 +5,7 @@ import perfectionist from 'eslint-plugin-perfectionist';
 import prettier from 'eslint-plugin-prettier/recommended';
 import promise from 'eslint-plugin-promise';
 import react from 'eslint-plugin-react';
+import redos from 'eslint-plugin-redos';
 import regexp from 'eslint-plugin-regexp';
 import sonarjs from 'eslint-plugin-sonarjs';
 import testingLibrary from 'eslint-plugin-testing-library';
@@ -322,6 +323,15 @@ export default [
 		},
 	},
 	// #endregion
+
+    // #region redos
+	{
+		files: [SRC_GLOB],
+		plugins: { redos },
+		rules: { 'redos/no-vulnerable': ERROR },
+	},
+	// #endregion
+
 
 	// #region sonar
 	{
