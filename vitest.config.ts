@@ -33,8 +33,7 @@ export default {
 		},
 		setupFiles: [
 			'@testing-library/react/dont-cleanup-after-each',
-			'@testing-library/jest-dom/vitest',
-            './vitest.setup.ts',
+			'./vitest.setup.ts',
 		],
 	},
 } satisfies UserConfigExport;

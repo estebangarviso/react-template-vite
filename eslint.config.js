@@ -324,14 +324,13 @@ export default [
 	},
 	// #endregion
 
-    // #region redos
+	// #region redos
 	{
 		files: [SRC_GLOB],
 		plugins: { redos },
 		rules: { 'redos/no-vulnerable': ERROR },
 	},
 	// #endregion
-
 
 	// #region sonar
 	{

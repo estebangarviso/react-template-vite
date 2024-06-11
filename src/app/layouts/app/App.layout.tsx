@@ -1,6 +1,6 @@
 import { Footer } from './Footer.tsx';
 import { Header } from './Header.tsx';
-import styles from './App.layout.module.css';
+import styles from './App.layout.module.scss';
 
 /**
  * App layout (wrapper for pages with header/footer).
