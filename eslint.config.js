@@ -33,6 +33,7 @@ export default [
 			'.vscode/**/*',
 			'.wireit/**/*',
 			'.rollup.cache/**/*',
+			'vite.config.ts.*',
 		],
 	},
 
