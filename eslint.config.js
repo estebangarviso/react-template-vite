@@ -34,6 +34,7 @@ export default [
 			'.wireit/**/*',
 			'.rollup.cache/**/*',
 			'vite.config.ts.*',
+			'vitest.config.ts.*',
 		],
 	},
 
