@@ -133,7 +133,6 @@ export default [
 			'no-unused-labels': WARN,
 			'no-unused-private-class-members': WARN,
 			'no-unused-vars': WARN,
-			'no-useless-assignment': WARN,
 			'no-useless-backreference': ERROR,
 			'no-useless-catch': ERROR,
 			'no-useless-computed-key': WARN,
