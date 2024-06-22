@@ -35,6 +35,10 @@ export default {
 	plugins: [
 		checker({
 			enableBuild: true,
+			eslint: {
+				lintCommand: 'eslint --cache',
+				useFlatConfig: true,
+			},
 			terminal: true,
 			typescript: true,
 		}),
