@@ -14,9 +14,6 @@
 		"lib": ["dom", "es2023"],
 		"types": ["vite/client"],
 
-		"experimentalDecorators": false,
-		"emitDecoratorMetadata": false,
-
 		"incremental": true,
 		"sourceMap": true,
 		"declaration": false,
