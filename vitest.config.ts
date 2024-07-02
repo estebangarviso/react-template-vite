@@ -5,6 +5,11 @@ export default {
 	clearScreen: false,
 	plugins: [
 		checker({
+			eslint: {
+				dev: { logLevel: ['error'] },
+				lintCommand: 'eslint --cache',
+				useFlatConfig: true,
+			},
 			terminal: true,
 			typescript: true,
 		}),
