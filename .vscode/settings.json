@@ -48,8 +48,8 @@
 	"files.exclude": {
 		"**/*.log": true,
 		"**/*.tsbuildinfo": true,
-		"**/..eslintcache": true,
-		"**/..stylelintcache": true,
+		"**/.eslintcache": true,
+		"**/.stylelintcache": true,
 		"**/.DS_Store": true,
 		"**/.git": true,
 		"**/.history": true,
