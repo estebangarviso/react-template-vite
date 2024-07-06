@@ -39,9 +39,6 @@ export default {
 				lintCommand: 'eslint --cache',
 				useFlatConfig: true,
 			},
-			stylelint: {
-				lintCommand: 'stylelint --cache src/**/*.{css,scss,sass}',
-			},
 			terminal: true,
 			typescript: true,
 		}),
