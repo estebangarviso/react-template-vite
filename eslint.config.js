@@ -1,4 +1,5 @@
 import unocss from '@unocss/eslint-config/flat';
+import testingLibraryJestDom from 'eslint-plugin-jest-dom';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import perfectionist from 'eslint-plugin-perfectionist';
 import prettier from 'eslint-plugin-prettier/recommended';
@@ -694,8 +695,22 @@ export default [
 	// #region testing library
 	{
 		files: [TEST_GLOB],
-		plugins: { 'testing-library': testingLibrary },
+		plugins: {
+			'jest-dom': testingLibraryJestDom,
+			'testing-library': testingLibrary,
+		},
 		rules: {
+			'jest-dom/prefer-checked': WARN,
+			'jest-dom/prefer-empty': WARN,
+			'jest-dom/prefer-enabled-disabled': WARN,
+			'jest-dom/prefer-focus': WARN,
+			'jest-dom/prefer-in-document': WARN,
+			'jest-dom/prefer-required': WARN,
+			'jest-dom/prefer-to-have-attribute': WARN,
+			'jest-dom/prefer-to-have-class': WARN,
+			'jest-dom/prefer-to-have-style': WARN,
+			'jest-dom/prefer-to-have-text-content': WARN,
+			'jest-dom/prefer-to-have-value': WARN,
 			// 'testing-library/await-async-events': [
 			// 	ERROR,
 			// 	{ eventModule: 'userEvent' },

@@ -31,6 +31,9 @@ export default {
 		environment: 'jsdom',
 		include: ['src/**/*.{spec,test}.?(c|m)[jt]s?(x)'],
 		reporters: ['verbose'],
-		setupFiles: ['@testing-library/react/dont-cleanup-after-each'],
+		setupFiles: [
+			'@testing-library/react/dont-cleanup-after-each',
+			'@testing-library/jest-dom/vitest',
+		],
 	},
 } satisfies UserConfigExport;
