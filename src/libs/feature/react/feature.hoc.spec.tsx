@@ -43,7 +43,7 @@ describe('feature HOC', () => {
 		renderFeature(<Component />);
 		const component = screen.queryByTestId('id');
 
-		expect(component).toBeNull();
+		expect(component).not.toBeInTheDocument();
 	});
 
 	test('when feature is enabled, component is rendered', () => {
@@ -77,7 +77,7 @@ describe('feature HOC', () => {
 		const component2 = screen.queryByTestId('id2');
 
 		expect(component1?.innerHTML).toBe('v1');
-		expect(component2).toBeNull();
+		expect(component2).not.toBeInTheDocument();
 	});
 
 	describe('throws', () => {

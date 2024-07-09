@@ -5,6 +5,7 @@
 		"stylelint-prettier",
 		"stylelint-scss",
 		"stylelint-order",
+		"stylelint-use-nesting",
 		"stylelint-config-rational-order/plugin"
 	],
 	"extends": [
@@ -61,6 +62,7 @@
 			}
 		],
 		"scss/no-global-function-names": null,
+		"csstools/use-nesting": "always",
 		"alpha-value-notation": "number",
 		"at-rule-disallowed-list": ["debug"],
 		"at-rule-no-unknown": [
