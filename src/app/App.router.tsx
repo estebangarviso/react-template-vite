@@ -3,7 +3,6 @@ import { routes } from './app.routes.tsx';
 
 // creates a router
 const Router = createRouter({
-	fallback: <h1>Not Found</h1>,
 	loading: <h1>Loading</h1>,
 	options: { basename: import.meta.env.BASE_URL },
 	routes: routes.app,

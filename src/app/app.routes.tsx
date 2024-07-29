@@ -1,5 +1,6 @@
 import { type RouteDefinition } from '#libs/router';
 import { AppLayout } from './layouts/app/App.layout.tsx';
+import ErrorPage from './pages/error/Error.page.tsx';
 import MainPage from './pages/main/Main.page.tsx';
 
 /**
@@ -21,6 +22,7 @@ import MainPage from './pages/main/Main.page.tsx';
 export const routes = {
 	app: [
 		{
+			ErrorBoundary: ErrorPage,
 			Layout: AppLayout,
 			children: [
 				{

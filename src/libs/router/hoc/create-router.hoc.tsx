@@ -57,7 +57,6 @@ const getRouterFactory = {
  *	const Router = createRouter({
  *		routes: myRoutes,
  *		loader: <h1>Loading</h1>,
- *		fallback: <h1>Not Found</h1>
  *	});
  *
  *	export const AppRouter: React.FC = (): React.ReactElement => {
