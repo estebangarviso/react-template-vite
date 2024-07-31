@@ -73,13 +73,11 @@ export const createContainer = (store = createStore()) => {
 				store.get(container).delete(key);
 			},
 		},
-		useContainer: () => {
-			return store.get(container);
-		},
-		useContainerValues: (value: Map<any, any>) => {
-			useHydrateAtoms([[container, value]]);
-		},
-		useInjection: <T, K = unknown, R = K extends Class ? K : T>(
+		useInjection: <
+			T,
+			K = unknown,
+			R = K extends { new (...args: any): infer C } ? C : T,
+		>(
 			key: K,
 		): R => {
 			return useAtomValue(container).get(key);
