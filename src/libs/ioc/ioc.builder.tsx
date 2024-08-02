@@ -8,10 +8,6 @@ import {
 import { useHydrateAtoms } from 'jotai/utils';
 import type { PropsWithChildren } from 'react';
 
-type Class = {
-	new (...args: any): any;
-};
-
 /**
  * Injects a new value to atom.
  */

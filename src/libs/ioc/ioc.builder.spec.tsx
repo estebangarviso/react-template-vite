@@ -1,5 +1,5 @@
-import { cleanup, render, renderHook, screen } from '@testing-library/react';
-import { afterEach, beforeAll, describe, expect, test, vi } from 'vitest';
+import { render, renderHook, screen } from '@testing-library/react';
+import { describe, expect, test } from 'vitest';
 import { createContainer } from './ioc.builder.tsx';
 
 describe(createContainer, () => {
@@ -18,11 +18,6 @@ describe(createContainer, () => {
 	// binding
 	container.bind(TEST_TOKEN, fn);
 	container.bind(TestClass, new TestClass());
-
-	// hooks
-	afterEach(() => {
-		cleanup();
-	});
 
 	// tests
 	test('useInjection returns dependency by token', () => {
