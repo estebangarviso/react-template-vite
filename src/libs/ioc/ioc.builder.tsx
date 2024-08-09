@@ -62,7 +62,7 @@ export const createContainer = (store = createStore()) => {
 			bind: (key: any, value: any) => {
 				store.get(container).set(key, value);
 			},
-			get: <T,>(key: any) => {
+			resolve: <T,>(key: any) => {
 				store.get(container).get(key) as T;
 			},
 			unbind: (key: any) => {
