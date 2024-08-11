@@ -59,7 +59,7 @@
 		"@unocss/eslint-config": "0.61.9",
 		"@vitejs/plugin-react-swc": "3.7.0",
 		"@vitest/coverage-v8": "2.0.5",
-		"eslint": "9.8.0",
+		"eslint": "9.9.0",
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-jest-dom": "^5.4.0",
 		"eslint-plugin-jsx-a11y": "6.9.0",
