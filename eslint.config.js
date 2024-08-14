@@ -500,6 +500,7 @@ export default [
 					],
 					ignoreCase: false,
 					order: 'asc',
+					partitionByComment: 'SECTION:**',
 					type: 'natural',
 				},
 			],
