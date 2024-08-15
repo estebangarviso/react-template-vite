@@ -206,6 +206,7 @@ export default [
 			'@typescript-eslint/no-floating-promises': [
 				WARN,
 				{
+					checkThenables: true,
 					ignoreIIFE: true,
 					ignoreVoid: true,
 				},
@@ -470,14 +471,7 @@ export default [
 		files: [SRC_GLOB],
 		plugins: { perfectionist },
 		rules: {
-			'perfectionist/sort-array-includes': [
-				WARN,
-				{
-					ignoreCase: false,
-					order: 'asc',
-					type: 'natural',
-				},
-			],
+			'perfectionist/sort-array-includes': WARN,
 			'perfectionist/sort-classes': [
 				WARN,
 				{
@@ -485,6 +479,7 @@ export default [
 						'decorated-method',
 						'method',
 						'private-method',
+						'function-property',
 						'constructor',
 						'decorated-property',
 						'property',
@@ -498,20 +493,11 @@ export default [
 						'static-property',
 						'unknown',
 					],
-					ignoreCase: false,
-					order: 'asc',
 					partitionByComment: 'SECTION:**',
-					type: 'natural',
 				},
 			],
-			'perfectionist/sort-enums': [
-				WARN,
-				{ ignoreCase: false, order: 'asc', type: 'natural' },
-			],
-			'perfectionist/sort-exports': [
-				WARN,
-				{ ignoreCase: false, order: 'asc', type: 'natural' },
-			],
+			'perfectionist/sort-enums': [WARN, { sortByValue: true }],
+			'perfectionist/sort-exports': WARN,
 			'perfectionist/sort-imports': [
 				WARN,
 				{
@@ -530,11 +516,8 @@ export default [
 						'object',
 						'unknown',
 					],
-					ignoreCase: false,
 					internalPattern: ['#**/**'],
 					newlinesBetween: 'ignore',
-					order: 'asc',
-					type: 'natural',
 				},
 			],
 			'perfectionist/sort-interfaces': [
@@ -542,37 +525,17 @@ export default [
 				{
 					customGroups: { top: 'id' },
 					groups: ['top', 'unknown'],
-					ignoreCase: false,
-					order: 'asc',
-					partitionByNewLine: true,
-					type: 'natural',
 				},
 			],
-			'perfectionist/sort-jsx-props': [
-				WARN,
-				{ ignoreCase: false, order: 'asc', type: 'natural' },
-			],
-			'perfectionist/sort-maps': [
-				WARN,
-				{ ignoreCase: false, order: 'asc', type: 'natural' },
-			],
-			'perfectionist/sort-named-exports': [
-				WARN,
-				{ ignoreCase: false, order: 'asc', type: 'natural' },
-			],
-			'perfectionist/sort-named-imports': [
-				WARN,
-				{ ignoreCase: false, order: 'asc', type: 'natural' },
-			],
+			'perfectionist/sort-jsx-props': WARN,
+			'perfectionist/sort-maps': WARN,
+			'perfectionist/sort-named-exports': WARN,
+			'perfectionist/sort-named-imports': WARN,
 			'perfectionist/sort-object-types': [
 				WARN,
 				{
 					customGroups: { top: 'id' },
 					groups: ['top', 'unknown'],
-					ignoreCase: false,
-					order: 'asc',
-					partitionByNewLine: true,
-					type: 'natural',
 				},
 			],
 			'perfectionist/sort-objects': [
@@ -580,14 +543,18 @@ export default [
 				{
 					customGroups: { top: 'id' },
 					groups: ['top', 'unknown'],
-					ignoreCase: false,
 					ignorePattern: ['features', 'examples', 'manualChunks'],
-					order: 'asc',
 					partitionByComment: '#region**',
-					partitionByNewLine: true,
-					type: 'natural',
 				},
 			],
+		},
+		settings: {
+			perfectionist: {
+				ignoreCase: false,
+				order: 'asc',
+				partitionByNewLine: true,
+				type: 'natural',
+			},
 		},
 	},
 	// #endregion
