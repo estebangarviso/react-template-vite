@@ -1,5 +1,5 @@
 import { Page, isRouteErrorResponse, useRouteError } from '#libs/router';
-import styles from './error.page.module.scss';
+import styles from './Error.page.module.scss';
 
 /**
  * Error page.
