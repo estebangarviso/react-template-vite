@@ -62,8 +62,14 @@ export const createContainer = (store = createStore()) => {
 			bind: (key: any, value: any) => {
 				store.get(container).set(key, value);
 			},
-			resolve: <T,>(key: any) => {
-				store.get(container).get(key) as T;
+			resolve: <
+				T,
+				K = unknown,
+				R = K extends { new (...args: any): infer C } ? C : T,
+			>(
+				key: K,
+			): R => {
+				return store.get(container).get(key);
 			},
 			unbind: (key: any) => {
 				store.get(container).delete(key);
