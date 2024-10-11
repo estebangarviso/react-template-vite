@@ -29,7 +29,7 @@ RUN npm i -g pnpm@${PNPM_VER}
 COPY . ${APP_DIR}
 RUN pnpm install --frozen-lockfile
 # builds the app
-ENV NODE_ENV production
+ENV NODE_ENV=production
 RUN pnpm build:${ENV}
 
 
