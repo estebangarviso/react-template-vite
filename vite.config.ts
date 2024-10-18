@@ -31,6 +31,13 @@ export default {
 		target: tsconfig.target,
 	},
 	clearScreen: false,
+	css: {
+		preprocessorOptions: {
+			scss: {
+				api: 'modern',
+			},
+		},
+	},
 	envPrefix: 'APP_',
 	plugins: [
 		checker({
