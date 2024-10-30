@@ -1,5 +1,5 @@
 import react from '@vitejs/plugin-react-swc';
-import css from 'unocss/vite';
+import unocss from 'unocss/vite';
 import { type UserConfigExport, normalizePath } from 'vite';
 import { checker } from 'vite-plugin-checker';
 import { VitePWA as pwa } from 'vite-plugin-pwa';
@@ -51,7 +51,7 @@ export default {
 			typescript: true,
 		}),
 		react(),
-		css(),
+		unocss(),
 		fonts(
 			[
 				`https://fonts.googleapis.com/css2?family=${FONT_FAMILY}:wght@${FONT_WEIGHTS}&display=swap`,

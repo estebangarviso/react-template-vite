@@ -4,20 +4,21 @@
 	"project": "(((project-name)))",
 	"name": "(((app-name)))",
 	"title": "(((app-title)))",
+	"description": "(((app-description)))",
 	"scripts": {
 		"start:dev": "env -e dev -m debug --log debug : vite",
 		"start:release": "env -e release -m debug : vite",
-		"build:dev": "wireit",
-		"build:release": "wireit",
+		"build:dev": "env -e dev -m build --log debug : vite build",
+		"build:release": "env -e dev -m build --log debug : vite build",
 		"test:dev": "env -e dev -m test : vitest",
 		"test:release": "env -e release -m test : vitest",
 		"test:mutation": "env -e dev -m test : stryker run",
-		"env:schema": "wireit",
-		"lint": "wireit",
-		"stylelint": "wireit",
-		"format": "wireit",
-		"clean": "pnpx del-cli dist reports **/*.tsbuildinfo .wireit .swc .node_modules",
-		"preview": "wireit"
+		"env:schema": "env schema -e dev -m build",
+		"lint": "eslint --cache --cache-location node_modules/.cache/eslint/",
+		"stylelint": "stylelint --cache src/**/*.{css,scss,sass} --cache-location node_modules/.cache/stylelint/",
+		"format": "prettier --cache --write **/*.{ts,cts,mts,tsx,css,scss,sass,json,html,md,yml,yaml,webmanifest}",
+		"clean": "pnpx del-cli dist reports **/*.tsbuildinfo .swc .node_modules",
+		"preview": "pnpm build:dev & env -e dev -m build : vite preview"
 	},
 	"imports": {
 		"#libs/ioc": "./src/libs/ioc/ioc.builder.tsx",
@@ -53,12 +54,12 @@
 		"@testing-library/react": "16.0.1",
 		"@testing-library/user-event": "14.5.2",
 		"@types/eslint": "9.6.1",
-		"@types/node": "22.8.1",
+		"@types/node": "22.8.4",
 		"@types/react": "18.3.12",
 		"@types/react-dom": "18.3.1",
 		"@unocss/eslint-config": "0.63.6",
 		"@vitejs/plugin-react-swc": "3.7.1",
-		"@vitest/coverage-v8": "2.1.3",
+		"@vitest/coverage-v8": "2.1.4",
 		"eslint": "9.13.0",
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-jest-dom": "^5.4.0",
@@ -77,7 +78,7 @@
 		"jsdom": "25.0.1",
 		"postcss": "8.4.47",
 		"prettier": "3.3.3",
-		"sass": "1.80.4",
+		"sass": "1.80.5",
 		"stylelint": "16.10.0",
 		"stylelint-config-rational-order": "0.1.2",
 		"stylelint-config-recommended": "14.0.1",
@@ -89,109 +90,14 @@
 		"stylelint-use-nesting": "^6.0.0",
 		"tslib": "2.8.0",
 		"typescript": "5.6.3",
-		"typescript-eslint": "8.11.0",
+		"typescript-eslint": "8.12.2",
 		"unocss": "0.63.6",
 		"vite": "5.4.10",
 		"vite-plugin-checker": "0.8.0",
 		"vite-plugin-pwa": "0.20.5",
 		"vite-plugin-webfont-dl": "3.9.5",
-		"vitest": "2.1.3",
-		"vitest-mock-extended": "2.0.2",
-		"wireit": "0.14.9"
-	},
-	"wireit": {
-		"build:dev": {
-			"command": "env -e dev -m build --log debug : vite build",
-			"clean": "if-file-deleted",
-			"output": [
-				"dist/**"
-			],
-			"files": [
-				"src/**",
-				"public/**",
-				"index.html",
-				"tsconfig.json",
-				"vite.config.ts",
-				"env/appsettings.json",
-				"env/dev.env.json",
-				"!**/*.{spec,test}.*",
-				"!**/__{tests,mocks,fixtures}__/*"
-			]
-		},
-		"build:release": {
-			"command": "env -e dev -m build --log debug : vite build",
-			"clean": "if-file-deleted",
-			"output": [
-				"dist/**"
-			],
-			"files": [
-				"src/**",
-				"public/**",
-				"index.html",
-				"tsconfig.json",
-				"vite.config.ts",
-				"env/appsettings.json",
-				"env/release.env.json",
-				"!**/*.{spec,test}.*",
-				"!**/__{tests,mocks,fixtures}__/*"
-			]
-		},
-		"preview": {
-			"command": "vite preview",
-			"dependencies": [
-				"build:dev"
-			],
-			"env": {
-				"BASE_URL": "/"
-			}
-		},
-		"format": {
-			"command": "prettier --cache --write **/*.{ts,cts,mts,tsx,css,scss,sass,json,html,md,yml,yaml,webmanifest}",
-			"output": [
-				"./node_modules/.cache/prettier/.prettier-cache"
-			],
-			"files": [
-				".prettierrc",
-				".prettierignore",
-				"**/*.{ts,cts,mts,tsx,css,scss,sass,json,html,md,yml,yaml,webmanifest}"
-			]
-		},
-		"lint": {
-			"command": "eslint --cache --cache-location node_modules/.cache/eslint/",
-			"output": [
-				"./node_modules/.cache/eslint/"
-			],
-			"files": [
-				"eslint.config.js",
-				".prettierrc",
-				".prettierignore",
-				"**/*.{js,mjs,cjs,jsx,ts,cts,mts,tsx,json}"
-			],
-			"dependencies": [
-				"stylelint"
-			]
-		},
-		"stylelint": {
-			"command": "stylelint --cache src/**/*.{css,scss,sass} --cache-location node_modules/.cache/stylelint/",
-			"output": [
-				"./node_modules/.cache/stylelint/"
-			],
-			"files": [
-				".stylelintrc",
-				".stylelintignore",
-				"src/**/*.{css,scss,sass}"
-			]
-		},
-		"env:schema": {
-			"command": "env schema -e dev -m build",
-			"output": [
-				"env/settings/schema.json"
-			],
-			"files": [
-				"env/appsettings.json",
-				"env/*.env.json"
-			]
-		}
+		"vitest": "2.1.4",
+		"vitest-mock-extended": "2.0.2"
 	},
 	"engines": {
 		"node": ">=22",

@@ -21,9 +21,6 @@ vitest.config.ts.*
 # Stryker cache
 .stryker-tmp
 
-# Wireit cache
-.wireit
-
 # test reports and coverage directory
 .reports
 __reports__
