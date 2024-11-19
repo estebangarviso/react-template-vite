@@ -1,7 +1,7 @@
 import { type RouteDefinition } from '#libs/router';
-import { AppLayout } from './layouts/app/App.layout.tsx';
-import ErrorPage from './pages/error/Error.page.tsx';
 import MainPage from './pages/main/Main.page.tsx';
+import ErrorPage from './pages/error/Error.page.tsx';
+import { AppLayout } from './layouts/app/App.layout.tsx';
 
 /**
  * Routes definition.
@@ -22,8 +22,6 @@ import MainPage from './pages/main/Main.page.tsx';
 export const routes = {
 	app: [
 		{
-			ErrorBoundary: ErrorPage,
-			Layout: AppLayout,
 			children: [
 				{
 					Component: MainPage,
@@ -34,6 +32,8 @@ export const routes = {
 					path: 'detail/:id?',
 				},
 			],
+			ErrorBoundary: ErrorPage,
+			Layout: AppLayout,
 		},
 	],
 } satisfies Record<string, RouteDefinition[]>;

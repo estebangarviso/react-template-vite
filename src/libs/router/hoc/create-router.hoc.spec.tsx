@@ -1,5 +1,5 @@
-import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, describe, test } from 'vitest';
+import { cleanup, render, screen } from '@testing-library/react';
 import { createRouter } from './create-router.hoc.tsx';
 
 describe('create-router', () => {
@@ -31,7 +31,7 @@ describe('create-router', () => {
 
 	test('renders a route with layout', () => {
 		const RouterWithLayout = createRouter({
-			routes: [{ Layout, children: [{ Component: Children }] }],
+			routes: [{ children: [{ Component: Children }], Layout }],
 			type: 'memory',
 		});
 
@@ -44,8 +44,8 @@ describe('create-router', () => {
 		const RouterWithLayout = createRouter({
 			routes: [
 				{
-					Layout,
 					children: [{ Component: Children }],
+					Layout,
 					loading: 'loading',
 				},
 			],

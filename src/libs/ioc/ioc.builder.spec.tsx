@@ -1,5 +1,5 @@
-import { render, renderHook, screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
+import { render, renderHook, screen } from '@testing-library/react';
 import { createContainer } from './ioc.builder.tsx';
 
 describe(createContainer, () => {

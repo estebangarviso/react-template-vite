@@ -1,9 +1,9 @@
-import react from '@vitejs/plugin-react-swc';
-import unocss from 'unocss/vite';
-import { type UserConfigExport, normalizePath } from 'vite';
-import { checker } from 'vite-plugin-checker';
-import { VitePWA as pwa } from 'vite-plugin-pwa';
 import fonts from 'vite-plugin-webfont-dl';
+import { VitePWA as pwa } from 'vite-plugin-pwa';
+import { checker } from 'vite-plugin-checker';
+import { normalizePath, type UserConfigExport } from 'vite';
+import unocss from 'unocss/vite';
+import react from '@vitejs/plugin-react-swc';
 import { compilerOptions as tsconfig } from './tsconfig.json';
 
 const FONT_FAMILY = process.env.FONT_FAMILY;

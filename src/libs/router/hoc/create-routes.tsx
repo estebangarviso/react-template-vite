@@ -1,11 +1,11 @@
-import { Suspense, lazy } from 'react';
 import { Outlet, type RouteObject } from 'react-router-dom';
-import { isLayoutRoute } from '../types/is-layout-route.ts';
+import { lazy, Suspense } from 'react';
 import type {
 	ComponentRoute,
 	LayoutRouteComponent,
 	RouteDefinition,
 } from '../types/route.d.ts';
+import { isLayoutRoute } from '../types/is-layout-route.ts';
 
 const renderLayout = (
 	Layout: LayoutRouteComponent,

@@ -1,4 +1,4 @@
-import { Page, isRouteErrorResponse, useRouteError } from '#libs/router';
+import { isRouteErrorResponse, Page, useRouteError } from '#libs/router';
 import styles from './Error.page.module.scss';
 
 /**

@@ -1,9 +1,9 @@
-import { useAtom } from 'jotai';
 import { useEffect } from 'react';
+import { useAtom } from 'jotai';
 import { Link, Page } from '#libs/router';
-import Logo from '../../assets/logo.svg';
-import viteLogoUrl from '../../assets/vite.png';
 import { sampleAtom } from '../../atoms/sample.atom.ts';
+import viteLogoUrl from '../../assets/vite.png';
+import Logo from '../../assets/logo.svg';
 import styles from './Main.page.module.scss';
 
 /**

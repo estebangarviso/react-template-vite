@@ -1,10 +1,10 @@
-import { Suspense } from 'react';
 import {
-	RouterProvider,
 	createBrowserRouter,
 	createHashRouter,
 	createMemoryRouter,
+	RouterProvider,
 } from 'react-router-dom';
+import { Suspense } from 'react';
 import type { RouteDefinition } from '../types/route.d.ts';
 import { createRoutes } from './create-routes.tsx';
 

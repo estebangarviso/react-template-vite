@@ -1,12 +1,12 @@
+import type { PropsWithChildren } from 'react';
+import { useHydrateAtoms } from 'jotai/utils';
 import {
-	type PrimitiveAtom,
-	Provider,
 	atom,
 	createStore,
+	type PrimitiveAtom,
+	Provider,
 	useAtomValue,
 } from 'jotai';
-import { useHydrateAtoms } from 'jotai/utils';
-import type { PropsWithChildren } from 'react';
 
 /**
  * Injects a new value to atom.
