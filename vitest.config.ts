@@ -1,7 +1,19 @@
+import { checker } from 'vite-plugin-checker';
 import type { UserConfigExport } from 'vitest/config';
 
 export default {
 	clearScreen: false,
+	plugins: [
+		checker({
+			eslint: {
+				dev: { logLevel: ['error'] },
+				lintCommand: 'eslint --cache',
+				useFlatConfig: true,
+			},
+			terminal: true,
+			typescript: true,
+		}),
+	] as any,
 	test: {
 		benchmark: {
 			include: ['src/**/*.{bench,benchmark}.?(c|m)[jt]s?(x)'],
