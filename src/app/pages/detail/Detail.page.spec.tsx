@@ -1,7 +1,7 @@
-import { afterAll, beforeAll, describe, test, vi } from 'vitest';
-import { createRouter } from '#libs/router';
-import { FeatureHandler, FeatureProvider } from '#libs/feature';
 import { act, render, screen } from '@testing-library/react';
+import { FeatureHandler, FeatureProvider } from '#libs/feature';
+import { createRouter } from '#libs/router';
+import { afterAll, beforeAll, describe, test, vi } from 'vitest';
 import { DetailPage } from './Detail.page.tsx';
 
 describe(DetailPage, () => {

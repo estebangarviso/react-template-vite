@@ -1,5 +1,5 @@
-import { lazy } from 'react';
 import { withFeatures } from '#libs/feature';
+import { lazy } from 'react';
 import { FetchBox_v2a } from './FetchBox.v2a.tsx';
 
 // feature managing example

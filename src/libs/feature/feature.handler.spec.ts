@@ -1,5 +1,5 @@
-import { beforeAll, describe, expect, test, vi } from 'vitest';
 import { randomUUID } from 'node:crypto';
+import { beforeAll, describe, expect, test, vi } from 'vitest';
 import { FeatureHandler } from './feature.handler.ts';
 
 describe(FeatureHandler, () => {

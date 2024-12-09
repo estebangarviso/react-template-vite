@@ -1,3 +1,5 @@
+import { act, cleanup, render, screen } from '@testing-library/react';
+import { type ReactNode } from 'react';
 import {
 	afterAll,
 	afterEach,
@@ -7,12 +9,10 @@ import {
 	test,
 	vi,
 } from 'vitest';
-import { type ReactNode } from 'react';
-import { act, cleanup, render, screen } from '@testing-library/react';
 import { FeatureHandler, type FeatureLookup } from '../feature.handler.ts';
-import { FeatureProvider } from './Feature.provider.tsx';
-import { withFeatures } from './feature.hoc.tsx';
 import { FeatureContextException } from './exceptions/feature-context.exception.ts';
+import { withFeatures } from './feature.hoc.tsx';
+import { FeatureProvider } from './Feature.provider.tsx';
 
 const renderFeature = (component: ReactNode, features?: FeatureLookup) => {
 	const handler = new FeatureHandler(features);

@@ -1,18 +1,18 @@
-import typescript from 'typescript-eslint';
-import globals from 'globals';
-import vitest from 'eslint-plugin-vitest';
-import unicorn from 'eslint-plugin-unicorn';
-import testingLibrary from 'eslint-plugin-testing-library';
-import sonarjs from 'eslint-plugin-sonarjs';
-import regexp from 'eslint-plugin-regexp';
-import redos from 'eslint-plugin-redos';
-import react from 'eslint-plugin-react';
-import promise from 'eslint-plugin-promise';
-import prettier from 'eslint-plugin-prettier/recommended';
-import perfectionist from 'eslint-plugin-perfectionist';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
-import testingLibraryJestDom from 'eslint-plugin-jest-dom';
 import unocss from '@unocss/eslint-config/flat';
+import testingLibraryJestDom from 'eslint-plugin-jest-dom';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import perfectionist from 'eslint-plugin-perfectionist';
+import prettier from 'eslint-plugin-prettier/recommended';
+import promise from 'eslint-plugin-promise';
+import react from 'eslint-plugin-react';
+import redos from 'eslint-plugin-redos';
+import regexp from 'eslint-plugin-regexp';
+import sonarjs from 'eslint-plugin-sonarjs';
+import testingLibrary from 'eslint-plugin-testing-library';
+import unicorn from 'eslint-plugin-unicorn';
+import vitest from 'eslint-plugin-vitest';
+import globals from 'globals';
+import typescript from 'typescript-eslint';
 
 const SRC_GLOB = '**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}';
 const TYPESCRIPT_GLOB = '**/*.{ts,cts,mts,tsx}';
@@ -574,7 +574,7 @@ export default [
 		settings: {
 			perfectionist: {
 				ignoreCase: false,
-				order: 'desc',
+				order: 'asc',
 				partitionByNewLine: true,
 				type: 'natural',
 			},
