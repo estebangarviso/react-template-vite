@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router';
 import { describe, expect, test } from 'vitest';
 import { useDocumentTitle, useHashValue } from './router.hook.ts';
 

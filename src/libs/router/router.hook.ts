@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 /**
  * Sets page document title.
@@ -18,7 +18,7 @@ export const useDocumentTitle = (title: string): void => {
  * @example
  *  const hash = useHash();
  *
- * @see useLocation from react-router-dom.
+ * @see useLocation from react-router.
  *
  * @returns URL hash.
  */

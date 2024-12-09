@@ -1,4 +1,4 @@
-import { type RouteObject } from 'react-router-dom';
+import { type RouteObject } from 'react-router';
 import { type XOR } from './xor.d.ts';
 
 export type LayoutRouteComponent =

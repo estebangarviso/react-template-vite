@@ -4,7 +4,7 @@ import {
 	createHashRouter,
 	createMemoryRouter,
 	RouterProvider,
-} from 'react-router-dom';
+} from 'react-router';
 import type { RouteDefinition } from '../types/route.d.ts';
 import { createRoutes } from './create-routes.tsx';
 
@@ -71,7 +71,6 @@ const getRouterFactory = {
  * @returns router with routes preloaded
  */
 export const createRouter = ({
-	fallback,
 	loading,
 	options,
 	routes: routesDef,
@@ -84,7 +83,7 @@ export const createRouter = ({
 
 	return (): React.ReactElement => (
 		<Suspense fallback={loading}>
-			<RouterProvider fallbackElement={fallback} router={router} />
+			<RouterProvider router={router} />
 		</Suspense>
 	);
 };
@@ -101,7 +100,6 @@ interface MemoryRouterOptions {
 }
 
 export interface RouterConfigBase {
-	fallback?: React.ReactNode;
 	loading?: React.ReactNode;
 	routes: RouteDefinition[];
 }

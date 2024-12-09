@@ -20,7 +20,7 @@ export default {
 					/* elements order is important because chunks
 					may import previously generated/grouped chunks */
 					react: ['react', 'react-dom'],
-					router: ['react-router-dom'],
+					router: ['react-router'],
 					store: ['jotai'],
 					'lib-feature': ['./src/libs/feature/index.ts'],
 					'lib-router': ['./src/libs/router/index.ts'],

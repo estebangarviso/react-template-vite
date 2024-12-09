@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Outlet, type RouteObject } from 'react-router-dom';
+import { Outlet, type RouteObject } from 'react-router';
 import { isLayoutRoute } from '../types/is-layout-route.ts';
 import type {
 	ComponentRoute,
