@@ -51,17 +51,6 @@ export default [
 			'no-invalid-regexp': ERROR,
 			'valid-typeof': ERROR,
 			'array-callback-return': ERROR,
-			'capitalized-comments': [
-				WARN,
-				'never',
-				{
-					block: { ignorePattern: '.*' },
-					line: {
-						ignoreConsecutiveComments: true,
-						ignorePattern: '[A-Z]*:.*',
-					},
-				},
-			],
 			complexity: [WARN, 15],
 			'constructor-super': ERROR,
 			'default-case': WARN,
@@ -153,6 +142,24 @@ export default [
 			'prefer-spread': WARN,
 			'prefer-template': WARN,
 			'quote-props': [WARN, 'as-needed'],
+			radix: [WARN, 'as-needed'],
+			'require-atomic-updates': WARN,
+			'require-await': ERROR,
+			'require-unicode-regexp': WARN,
+			'require-yield': ERROR,
+			'use-isnan': ERROR,
+			yoda: WARN,
+			'capitalized-comments': [
+				WARN,
+				'never',
+				{
+					block: { ignorePattern: '.*' },
+					line: {
+						ignoreConsecutiveComments: true,
+						ignorePattern: '[A-Z]*:.*',
+					},
+				},
+			],
 			quotes: [
 				WARN,
 				'single',
@@ -161,13 +168,6 @@ export default [
 					allowTemplateLiterals: false,
 				},
 			],
-			radix: [WARN, 'as-needed'],
-			'require-atomic-updates': WARN,
-			'require-await': ERROR,
-			'require-unicode-regexp': WARN,
-			'require-yield': ERROR,
-			'use-isnan': ERROR,
-			yoda: WARN,
 		},
 	},
 	// #endregion
@@ -185,6 +185,18 @@ export default [
 		rules: {
 			...typescript.configs.strict[1].rules,
 			...typescript.configs.strict[2].rules,
+			'@typescript-eslint/explicit-function-return-type': OFF,
+			'@typescript-eslint/explicit-module-boundary-types': OFF,
+			'@typescript-eslint/interface-name-prefix': OFF,
+			'@typescript-eslint/no-empty-function': WARN,
+			'@typescript-eslint/no-empty-object-type': OFF,
+			'@typescript-eslint/no-explicit-any': OFF,
+			'@typescript-eslint/no-extraneous-class': OFF,
+			'@typescript-eslint/no-non-null-assertion': OFF,
+			'@typescript-eslint/no-redundant-type-constituents': ERROR,
+			'@typescript-eslint/no-unsafe-function-type': OFF,
+			'@typescript-eslint/no-wrapper-object-types': WARN,
+			'@typescript-eslint/return-await': [ERROR, 'in-try-catch'],
 			'@typescript-eslint/consistent-type-imports': [
 				WARN,
 				{
@@ -192,17 +204,10 @@ export default [
 					prefer: 'type-imports',
 				},
 			],
-			'@typescript-eslint/explicit-function-return-type': OFF,
-			'@typescript-eslint/explicit-module-boundary-types': OFF,
-			'@typescript-eslint/interface-name-prefix': OFF,
-			'@typescript-eslint/no-empty-function': WARN,
 			'@typescript-eslint/no-empty-interface': [
 				ERROR,
 				{ allowSingleExtends: true },
 			],
-			'@typescript-eslint/no-empty-object-type': OFF,
-			'@typescript-eslint/no-explicit-any': OFF,
-			'@typescript-eslint/no-extraneous-class': OFF,
 			'@typescript-eslint/no-floating-promises': [
 				WARN,
 				{
@@ -215,9 +220,6 @@ export default [
 				WARN,
 				{ allowDeclarations: true },
 			],
-			'@typescript-eslint/no-non-null-assertion': OFF,
-			'@typescript-eslint/no-redundant-type-constituents': ERROR,
-			'@typescript-eslint/no-unsafe-function-type': OFF,
 			'@typescript-eslint/no-unused-vars': [
 				WARN,
 				{
@@ -242,8 +244,6 @@ export default [
 					variables: true,
 				},
 			],
-			'@typescript-eslint/no-wrapper-object-types': WARN,
-			'@typescript-eslint/return-await': [ERROR, 'in-try-catch'],
 			'@typescript-eslint/sort-type-constituents': [
 				WARN,
 				{
@@ -272,40 +272,25 @@ export default [
 	// #region react
 	{
 		files: [REACT_GLOB],
+		plugins: { react },
 		languageOptions: {
 			parserOptions: {
 				ecmaFeatures: { jsx: true },
+				project: ['tsconfig.json'],
 				globals: {
 					...globals.serviceworker,
 					...globals.browser,
 					JSX: true,
 					React: true,
 				},
-				project: ['tsconfig.json'],
 			},
 		},
-		plugins: { react },
 		rules: {
 			'react/destructuring-assignment': [WARN, 'always'],
 			'react/display-name': OFF,
 			'react/iframe-missing-sandbox': WARN,
 			'react/jsx-boolean-value': WARN,
-			'react/jsx-curly-brace-presence': [
-				WARN,
-				{
-					children: 'never',
-					propElementValues: 'always',
-					props: 'never',
-				},
-			],
 			'react/jsx-fragments': [WARN, 'syntax'],
-			'react/jsx-key': [
-				ERROR,
-				{
-					checkFragmentShorthand: true,
-					warnOnDuplicates: true,
-				},
-			],
 			'react/jsx-no-comment-textnodes': WARN,
 			'react/jsx-no-duplicate-props': WARN,
 			'react/jsx-no-useless-fragment': WARN,
@@ -315,6 +300,21 @@ export default [
 			'react/no-multi-comp': OFF,
 			'react/prop-types': OFF,
 			'react/self-closing-comp': WARN,
+			'react/jsx-curly-brace-presence': [
+				WARN,
+				{
+					children: 'never',
+					propElementValues: 'always',
+					props: 'never',
+				},
+			],
+			'react/jsx-key': [
+				ERROR,
+				{
+					checkFragmentShorthand: true,
+					warnOnDuplicates: true,
+				},
+			],
 		},
 		settings: {
 			react: {
@@ -396,12 +396,6 @@ export default [
 			'unicorn/escape-case': WARN,
 			'unicorn/expiring-todo-comments': ERROR,
 			'unicorn/explicit-length-check': WARN,
-			'unicorn/filename-case': [
-				ERROR,
-				{
-					cases: { kebabCase: true, pascalCase: true },
-				},
-			],
 			'unicorn/new-for-builtins': ERROR,
 			'unicorn/no-array-for-each': WARN,
 			'unicorn/no-array-method-this-argument': ERROR,
@@ -485,6 +479,12 @@ export default [
 			'unicorn/string-content': WARN,
 			'unicorn/template-indent': WARN,
 			'unicorn/throw-new-error': ERROR,
+			'unicorn/filename-case': [
+				ERROR,
+				{
+					cases: { kebabCase: true, pascalCase: true },
+				},
+			],
 		},
 	},
 	// #endregion
@@ -495,9 +495,16 @@ export default [
 		plugins: { perfectionist },
 		rules: {
 			'perfectionist/sort-array-includes': WARN,
+			'perfectionist/sort-enums': [WARN, { sortByValue: true }],
+			'perfectionist/sort-exports': WARN,
+			'perfectionist/sort-jsx-props': WARN,
+			'perfectionist/sort-maps': WARN,
+			'perfectionist/sort-named-exports': WARN,
+			'perfectionist/sort-named-imports': WARN,
 			'perfectionist/sort-classes': [
 				WARN,
 				{
+					partitionByComment: 'SECTION:*',
 					groups: [
 						'decorated-method',
 						'method',
@@ -516,14 +523,14 @@ export default [
 						'static-property',
 						'unknown',
 					],
-					partitionByComment: 'SECTION:*',
 				},
 			],
-			'perfectionist/sort-enums': [WARN, { sortByValue: true }],
-			'perfectionist/sort-exports': WARN,
 			'perfectionist/sort-imports': [
 				WARN,
 				{
+					internalPattern: ['#*/*'],
+					newlinesBetween: 'ignore',
+					type: 'alphabetical',
 					groups: [
 						['builtin-type', 'builtin'],
 						['external-type', 'external'],
@@ -538,36 +545,58 @@ export default [
 						'object',
 						'unknown',
 					],
-					internalPattern: ['#*/*'],
-					newlinesBetween: 'ignore',
-					type: 'alphabetical',
 				},
 			],
 			'perfectionist/sort-interfaces': [
 				WARN,
 				{
 					customGroups: { top: 'id' },
-					groups: ['top', 'unknown'],
+					groups: [
+						'top',
+						'member',
+						'multiline-member',
+						'multiline-optional-member',
+						'optional-member',
+						'method',
+						'multiline-method',
+						'multiline-optional-method',
+						'optional-method',
+						'unknown',
+					],
 				},
 			],
-			'perfectionist/sort-jsx-props': WARN,
-			'perfectionist/sort-maps': WARN,
-			'perfectionist/sort-named-exports': WARN,
-			'perfectionist/sort-named-imports': WARN,
 			'perfectionist/sort-object-types': [
 				WARN,
 				{
 					customGroups: { top: 'id' },
-					groups: ['top', 'unknown'],
+					groups: [
+						'top',
+						'member',
+						'multiline-member',
+						'multiline-optional-member',
+						'optional-member',
+						'method',
+						'multiline-method',
+						'multiline-optional-method',
+						'optional-method',
+						'unknown',
+					],
 				},
 			],
 			'perfectionist/sort-objects': [
 				WARN,
 				{
 					customGroups: { top: 'id' },
-					groups: ['top', 'unknown'],
 					ignorePattern: ['features', 'examples', 'manualChunks'],
 					partitionByComment: '#region*',
+					groups: [
+						'top',
+						'member',
+						'multiline-member',
+						'method',
+						'multiline-method',
+						'unknown',
+					],
 				},
 			],
 		},
@@ -704,16 +733,8 @@ export default [
 			'jest-dom/prefer-to-have-style': WARN,
 			'jest-dom/prefer-to-have-text-content': WARN,
 			'jest-dom/prefer-to-have-value': WARN,
-			'testing-library/await-async-events': [
-				ERROR,
-				{ eventModule: 'userEvent' },
-			],
 			'testing-library/await-async-queries': ERROR,
 			'testing-library/await-async-utils': ERROR,
-			'testing-library/no-await-sync-events': [
-				ERROR,
-				{ eventModules: ['fire-event'] },
-			],
 			'testing-library/no-await-sync-queries': ERROR,
 			'testing-library/no-container': ERROR,
 			'testing-library/no-debugging-utils': WARN,
@@ -731,6 +752,14 @@ export default [
 			'testing-library/prefer-query-by-disappearance': ERROR,
 			'testing-library/prefer-screen-queries': ERROR,
 			'testing-library/render-result-naming-convention': ERROR,
+			'testing-library/await-async-events': [
+				ERROR,
+				{ eventModule: 'userEvent' },
+			],
+			'testing-library/no-await-sync-events': [
+				ERROR,
+				{ eventModules: ['fire-event'] },
+			],
 		},
 	},
 	// #endregion

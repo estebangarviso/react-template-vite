@@ -42,6 +42,7 @@ describe('create-router', () => {
 
 	test('renders a route with layout and suspense', () => {
 		const RouterWithLayout = createRouter({
+			type: 'memory',
 			routes: [
 				{
 					children: [{ Component: Children }],
@@ -49,7 +50,6 @@ describe('create-router', () => {
 					loading: 'loading',
 				},
 			],
-			type: 'memory',
 		});
 
 		render(<RouterWithLayout />);

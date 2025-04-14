@@ -12,8 +12,12 @@ const BASE_PATH = normalizePath(`/${process.env.BASE_URL}`);
 
 export default {
 	base: BASE_PATH,
+	clearScreen: false,
+	envPrefix: 'APP_',
 	build: {
 		minify: true,
+		sourcemap: tsconfig.sourceMap,
+		target: tsconfig.target,
 		rollupOptions: {
 			output: {
 				manualChunks: {
@@ -27,10 +31,7 @@ export default {
 				},
 			},
 		},
-		sourcemap: tsconfig.sourceMap,
-		target: tsconfig.target,
 	},
-	clearScreen: false,
 	css: {
 		preprocessorOptions: {
 			scss: {
@@ -38,17 +39,16 @@ export default {
 			},
 		},
 	},
-	envPrefix: 'APP_',
 	plugins: [
 		checker({
 			enableBuild: true,
+			terminal: true,
+			typescript: true,
 			eslint: {
 				dev: { logLevel: ['error'] },
 				lintCommand: 'eslint --cache',
 				useFlatConfig: true,
 			},
-			terminal: true,
-			typescript: true,
 		}),
 		react(),
 		unocss(),
@@ -62,19 +62,19 @@ export default {
 			},
 		),
 		pwa({
-			devOptions: {
-				enabled: false,
-			},
 			disable: process.env.SERVICE_WORKER === 'false',
 			injectRegister: 'inline',
 			manifest: false,
 			registerType: 'autoUpdate',
+			devOptions: {
+				enabled: false,
+			},
 			workbox: {
 				cleanupOutdatedCaches: true,
+				sourcemap: tsconfig.sourceMap,
 				globPatterns: [
 					'**/*.{html,js,css,ico,png,svg,webp,avif,woff2}',
 				],
-				sourcemap: tsconfig.sourceMap,
 			},
 		}),
 	],

@@ -22,18 +22,18 @@ import MainPage from './pages/main/Main.page.tsx';
 export const routes = {
 	app: [
 		{
+			ErrorBoundary: ErrorPage,
+			Layout: AppLayout,
 			children: [
 				{
 					Component: MainPage,
 				},
 				{
+					path: 'detail/:id?',
 					lazy: () => import('./pages/detail/Detail.page.tsx'),
 					loader: () => Promise.resolve('a promise'),
-					path: 'detail/:id?',
 				},
 			],
-			ErrorBoundary: ErrorPage,
-			Layout: AppLayout,
 		},
 	],
 } satisfies Record<string, RouteDefinition[]>;

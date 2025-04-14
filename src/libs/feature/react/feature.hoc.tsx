@@ -108,13 +108,13 @@ export const withFeatures = <Props,>({
 
 interface FeatureSwitchProps {
 	components: Record<string, ReactComponent<any>>;
-	fallback?: React.ReactNode;
 	handler: FeatureHandler;
 	props: any;
+	fallback?: React.ReactNode;
 }
 
 export interface WithFeaturesConfig<Props = unknown> {
-	fallback?: React.ReactNode;
 	features: Record<string, ReactComponent<Props>>;
+	fallback?: React.ReactNode;
 	loading?: React.ReactNode;
 }

@@ -11,11 +11,11 @@ const FONT_FAMILY = process.env.FONT_FAMILY;
 
 export default {
 	presets: [typography(), wind({ preflight: true }), icons({ prefix: '' })],
+	transformers: [transformerDirectives(), transformerVariantGroup()],
 	theme: {
 		fontFamily: {
 			sans: [FONT_FAMILY, 'sans-serif'],
 			serif: [FONT_FAMILY, 'serif'],
 		},
 	},
-	transformers: [transformerDirectives(), transformerVariantGroup()],
 } satisfies UserConfig;

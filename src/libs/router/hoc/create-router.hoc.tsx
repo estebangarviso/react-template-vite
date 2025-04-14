@@ -100,8 +100,8 @@ interface MemoryRouterOptions {
 }
 
 export interface RouterConfigBase {
-	loading?: React.ReactNode;
 	routes: RouteDefinition[];
+	loading?: React.ReactNode;
 }
 
 export interface RouterConfig extends RouterConfigBase {

@@ -5,6 +5,7 @@ import { FetchBox_v2a } from './FetchBox.v2a.tsx';
 // feature managing example
 export const FetchBox = withFeatures<FetchBoxProps>({
 	fallback: <h1>No Features Enabled</h1>,
+	loading: <h2>Loading Feature</h2>,
 	features: {
 		FEATURE_FETCHBOX_V2ALPHA: FetchBox_v2a,
 		// lazy load chunk
@@ -13,7 +14,6 @@ export const FetchBox = withFeatures<FetchBoxProps>({
 			return { default: FetchBox_v1 };
 		}),
 	},
-	loading: <h2>Loading Feature</h2>,
 });
 
 export interface FetchBoxProps {
