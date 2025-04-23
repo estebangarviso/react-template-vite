@@ -5,7 +5,6 @@ import perfectionist from 'eslint-plugin-perfectionist';
 import prettier from 'eslint-plugin-prettier/recommended';
 import promise from 'eslint-plugin-promise';
 import react from 'eslint-plugin-react';
-import redos from 'eslint-plugin-redos';
 import regexp from 'eslint-plugin-regexp';
 import sonarjs from 'eslint-plugin-sonarjs';
 import testingLibrary from 'eslint-plugin-testing-library';
@@ -43,7 +42,7 @@ export default [
 	{
 		files: [SRC_GLOB],
 		languageOptions: {
-			ecmaVersion: 2023,
+			ecmaVersion: 2024,
 			globals: { ...globals.node },
 			sourceType: 'module',
 		},
@@ -532,6 +531,7 @@ export default [
 					newlinesBetween: 'ignore',
 					type: 'alphabetical',
 					groups: [
+						'tsconfig-path',
 						['builtin-type', 'builtin'],
 						['external-type', 'external'],
 						['internal-type', 'internal'],
@@ -543,6 +543,7 @@ export default [
 						'side-effect',
 						'side-effect-style',
 						'object',
+						'import',
 						'unknown',
 					],
 				},
@@ -702,14 +703,6 @@ export default [
 			'regexp/unicode-property': ERROR,
 			'regexp/use-ignore-case': ERROR,
 		},
-	},
-	// #endregion
-
-	// #region redos
-	{
-		files: [SRC_GLOB],
-		plugins: { redos },
-		rules: { 'redos/no-vulnerable': ERROR },
 	},
 	// #endregion
 
