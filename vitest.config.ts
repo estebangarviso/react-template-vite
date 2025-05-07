@@ -15,7 +15,7 @@ export default {
 		}),
 	] as any,
 	test: {
-		environment: 'jsdom',
+		environment: 'happy-dom',
 		include: ['src/**/*.{spec,test}.?(c|m)[jt]s?(x)'],
 		reporters: ['verbose'],
 		benchmark: {
