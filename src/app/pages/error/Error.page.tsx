@@ -1,4 +1,4 @@
-import { isRouteErrorResponse, Page, useRouteError } from '#libs/router';
+import { isRouteErrorResponse, useRouteError } from '#libs/router';
 import styles from './Error.page.module.scss';
 
 /**
@@ -9,7 +9,9 @@ export const ErrorPage: React.FC = (): React.ReactElement => {
 
 	// jsx
 	return (
-		<Page className={styles.page} title='Error'>
+		<section className={styles.page}>
+			<title>Error</title>
+
 			{isRouteErrorResponse(error) ? (
 				<h1>
 					{error.status} - {error.statusText}
@@ -17,7 +19,7 @@ export const ErrorPage: React.FC = (): React.ReactElement => {
 			) : (
 				<h1>Unknown Error</h1>
 			)}
-		</Page>
+		</section>
 	);
 };
 

@@ -1,4 +1,4 @@
-import { Link, Page } from '#libs/router';
+import { Link } from '#libs/router';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
 import Logo from '../../assets/logo.svg';
@@ -19,7 +19,9 @@ export const MainPage: React.FC = (): React.ReactElement => {
 
 	// jsx
 	return (
-		<Page className={styles.page} title='Main Page'>
+		<section className={styles.page}>
+			<title>Main Page</title>
+
 			<Link to='/detail'>Go To Detail</Link>
 			<Link to='/detail/123'>Go To Detail 123</Link>
 
@@ -33,7 +35,7 @@ export const MainPage: React.FC = (): React.ReactElement => {
 
 			<img alt='logo' src={Logo} width='10%' />
 			<img alt='vite logo' src={viteLogoUrl} width='10%' />
-		</Page>
+		</section>
 	);
 };
 
