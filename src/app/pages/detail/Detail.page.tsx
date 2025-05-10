@@ -3,9 +3,6 @@ import Logo from '../../assets/logo.svg';
 import { FetchBox } from './components/FetchBox.tsx';
 import styles from './Detail.page.module.scss';
 
-/**
- * Detail page.
- */
 export const DetailPage: React.FC = (): React.ReactElement => {
 	const { id } = useParams();
 	const aMessage = useLoaderData<string>();

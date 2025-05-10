@@ -6,9 +6,6 @@ import viteLogoUrl from '../../assets/vite.png';
 import { sampleAtom } from '../../atoms/sample.atom.ts';
 import styles from './Main.page.module.scss';
 
-/**
- * Main page.
- */
 export const MainPage: React.FC = (): React.ReactElement => {
 	const [message, setStatus] = useAtom(sampleAtom);
 
