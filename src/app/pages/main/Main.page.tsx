@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Logo from '../../assets/logo.svg';
 import viteLogoUrl from '../../assets/vite.png';
 import { sampleAtom } from '../../atoms/sample.atom.ts';
-import styles from './Main.page.module.scss';
+import styles from './Main.page.module.css';
 
 export const MainPage: React.FC = (): React.ReactElement => {
 	const [message, setStatus] = useAtom(sampleAtom);
@@ -22,9 +22,9 @@ export const MainPage: React.FC = (): React.ReactElement => {
 			<Link to='/detail'>Go To Detail</Link>
 			<Link to='/detail/123'>Go To Detail 123</Link>
 
-			<h1 className='text-brand font-bold underline'>
+			<h1 className='text-primary font-bold underline'>
 				hello world
-				<div className='mdi-alarm text-orange-400' />
+				<div className='i-mdi-alarm text-size-4xl text-orange-400' />
 			</h1>
 
 			<h2>{import.meta.env.APP_ENV}</h2>

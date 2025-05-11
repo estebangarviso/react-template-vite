@@ -32,13 +32,6 @@ export default {
 			},
 		},
 	},
-	css: {
-		preprocessorOptions: {
-			scss: {
-				api: 'modern',
-			},
-		},
-	},
 	plugins: [
 		checker({
 			enableBuild: true,

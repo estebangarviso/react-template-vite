@@ -13,7 +13,7 @@ describe('async atom', () => {
 
 	// hooks
 	beforeAll(() => {
-		vi.useFakeTimers();
+		vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
 		// renders the hook
 		({ rerender, result: hook } = renderAsyncAtom());
 	});

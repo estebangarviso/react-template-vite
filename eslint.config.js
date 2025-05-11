@@ -543,8 +543,6 @@ export default [
 						['index-type', 'index'],
 						'type',
 						'style',
-						'side-effect',
-						'side-effect-style',
 						'object',
 						'import',
 						'unknown',
@@ -747,7 +745,7 @@ export default [
 			'testing-library/prefer-presence-queries': ERROR,
 			'testing-library/prefer-query-by-disappearance': ERROR,
 			'testing-library/prefer-screen-queries': ERROR,
-			'testing-library/render-result-naming-convention': ERROR,
+			'testing-library/render-result-naming-convention': OFF,
 			'testing-library/await-async-events': [
 				ERROR,
 				{ eventModule: 'userEvent' },

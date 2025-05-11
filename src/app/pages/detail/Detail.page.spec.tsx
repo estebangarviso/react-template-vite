@@ -7,7 +7,7 @@ import { DetailPage } from './Detail.page.tsx';
 describe(DetailPage, () => {
 	// hooks
 	beforeAll(() => {
-		vi.useFakeTimers();
+		vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
 
 		const DetailPageRouter = createRouter({
 			routes: [{ Component: DetailPage }],

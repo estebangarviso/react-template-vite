@@ -1,7 +1,7 @@
 import { FeatureProvider } from '#libs/feature';
 import { featureHandler } from './app.features.ts';
 import { AppRouter } from './App.router.tsx';
-import './styles/app.scss';
+import './styles/app.css';
 
 /**
  * Here occur the initialization,

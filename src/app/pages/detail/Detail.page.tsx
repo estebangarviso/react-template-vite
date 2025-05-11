@@ -1,7 +1,7 @@
 import { Link, useLoaderData, useParams } from '#libs/router';
 import Logo from '../../assets/logo.svg';
 import { FetchBox } from './components/FetchBox.tsx';
-import styles from './Detail.page.module.scss';
+import styles from './Detail.page.module.css';
 
 export const DetailPage: React.FC = (): React.ReactElement => {
 	const { id } = useParams();
