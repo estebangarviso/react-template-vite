@@ -17,7 +17,7 @@ export default {
 	build: {
 		minify: true,
 		sourcemap: tsconfig.sourceMap,
-		target: tsconfig.target,
+		target: 'baseline-widely-available',
 		rollupOptions: {
 			output: {
 				manualChunks: {
