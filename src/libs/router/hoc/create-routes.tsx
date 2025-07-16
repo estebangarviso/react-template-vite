@@ -5,7 +5,7 @@ import type {
 	ComponentRoute,
 	LayoutRouteComponent,
 	RouteDefinition,
-} from '../types/route.d.ts';
+} from '../types/route';
 
 const renderLayout = (
 	Layout: LayoutRouteComponent,
