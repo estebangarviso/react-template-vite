@@ -4,14 +4,14 @@
 
 #### 1.1. Dependencies
 
--   Install **env** library with `npm i -D @v10e/env`.
+- Install **env** library with `npm i -D @v10e/env`.
 
 #### 1.2. NPM Scripts
 
 For load desired environment, add you npm script like **`env -e <env> -m <mode>[ <mode2>] : <your-command>`**.
 
--   **mode**: (build|debug|test) execution mode base variables (can be many).
--   **env**: (dev|qa|prod) environment variables.
+- **mode**: (build|debug|test) execution mode base variables (can be many).
+- **env**: (dev|qa|prod) environment variables.
 
 _In example: `env -e dev -m debug : npm start`_
 
@@ -58,23 +58,23 @@ _This folder contains every base environment variables files a.k.a. environment 
 
 #### 2.2. Environments
 
--   2.2.1. Secrets
+- 2.2.1. Secrets
 
 Your `env` folder will contain files below that store secrets:
 
--   **dev.env.json**: development environment.
--   **qa.env.json**: quality assurance environment.
--   **prod.env.json**: production environment.
+- **dev.env.json**: development environment.
+- **qa.env.json**: quality assurance environment.
+- **prod.env.json**: production environment.
 
 _This folder contains secrets variables files for system environments._
 
--   2.2.2. Local Environment
+- 2.2.2. Local Environment
 
 Your `env` folder will contain files below that store local development variables per environment:
 
--   **dev.local.env.json**: local development environment.
--   **qa.local.env.json**: local qa environment.
--   **prod.local.env.json**: local production environment.
+- **dev.local.env.json**: local development environment.
+- **qa.local.env.json**: local qa environment.
+- **prod.local.env.json**: local production environment.
 
 _This folder should local environment variables files for system environments, taking precedence over any other._
 
@@ -133,8 +133,8 @@ const myVar3 = import.meta.env.VAR3;
 
 ### From lowest to highest.
 
--   `appsettings.json` -> default
--   `appsettings.json` -> dev|qa|prod
--   `appsettings.json` -> debug|build|test
--   `(dev|qa|prod).env.json`
--   `(dev|qa|prod).local.env.json` (takes precedence over previous)
+- `appsettings.json` -> default
+- `appsettings.json` -> dev|qa|prod
+- `appsettings.json` -> debug|build|test
+- `(dev|qa|prod).env.json`
+- `(dev|qa|prod).local.env.json` (takes precedence over previous)
