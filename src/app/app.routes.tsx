@@ -31,7 +31,8 @@ export const routes = {
 				{
 					path: 'detail/:id?',
 					lazy: () => import('./pages/detail/Detail.page.tsx'),
-					loader: () => Promise.resolve('a promise'),
+					loader: () =>
+						Promise.resolve('a promise message from loader'),
 				},
 			],
 		},

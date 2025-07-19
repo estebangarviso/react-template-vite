@@ -7,6 +7,7 @@ export const FetchBox_v2a: React.FC<FetchBoxProps> = ({ logoSrc }) => {
 
 	return (
 		<div className={styles.box}>
+			<h3 className='text-center'>FetchBox v2a</h3>
 			<img alt='logo' className={styles.logo} src={logoSrc} />
 
 			<button className={styles.button} onClick={dispatchFetch}>

@@ -42,7 +42,10 @@ export class FeatureHandler {
 	 * @param listener - callback triggered on change
 	 */
 	addOnChangeListener(listener: FeatureOnChangeListener): void {
-		this._emitter.addEventListener(FEATURE_CHANGED_EVENT, listener as any);
+		this._emitter.addEventListener(
+			FEATURE_CHANGED_EVENT,
+			listener as EventListener,
+		);
 	}
 
 	/**
