@@ -21,16 +21,22 @@ export const MainPage: React.FC = (): React.ReactElement => {
 			<Link to='/detail'>Go To Detail</Link>
 			<Link to='/detail/123'>Go To Detail 123</Link>
 
-			<h1 className='text-primary font-bold underline'>
+			<h1 className='text-center text-primary font-bold underline'>
 				hello world
-				<div className='i-mdi-alarm text-size-4xl text-orange-400' />
+				<i className='i-mdi-alarm text-size-4xl text-orange-400' />
 			</h1>
 
-			<h2>{import.meta.env.APP_ENV}</h2>
-			<h3 className='text-green-700 font-bold'>{message}</h3>
-
-			<img alt='logo' src={Logo} width='10%' />
-			<img alt='vite logo' src={viteLogoUrl} width='10%' />
+			<h2 className='text-center'>{import.meta.env.APP_ENV}</h2>
+			<h3 className='text-center text-green-700 font-bold'>{message}</h3>
+			<div className={styles.logos}>
+				<img
+					alt='logo'
+					className={styles.react}
+					src={Logo}
+					width='10%'
+				/>
+				<img alt='vite logo' src={viteLogoUrl} width='10%' />
+			</div>
 		</section>
 	);
 };

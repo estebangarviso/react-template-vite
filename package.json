@@ -49,6 +49,7 @@
 		"@types/react": "19.1.8",
 		"@types/react-dom": "19.1.6",
 		"@unocss/eslint-config": "66.3.2",
+		"@unocss/reset": "^66.3.3",
 		"@v10e/env": "2.12.0",
 		"@vitejs/plugin-react-swc": "3.10.2",
 		"@vitest/coverage-v8": "3.2.4",

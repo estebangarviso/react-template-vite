@@ -5,3 +5,17 @@
 	padding-top: 0.5em;
 	overflow-wrap: break-word;
 }
+
+.logos {
+	display: flex;
+	justify-content: center;
+	gap: 1em;
+	.react {
+		@apply animate-spin animate-[spin_5s_linear_infinite];
+	}
+	@media (max-width: 768px) {
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5em;
+	}
+}
