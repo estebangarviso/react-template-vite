@@ -1,6 +1,6 @@
 import { useAsyncStore } from '../stores/async.store.ts';
 import type { FetchBoxProps } from './FetchBox.tsx';
-import styles from './fetch-box.module.scss';
+import styles from './FetchBox.module.scss';
 
 export const FetchBox_v2a: React.FC<FetchBoxProps> = ({ logoSrc }) => {
 	const { content, fetch: dispatchFetch, loading } = useAsyncStore();
