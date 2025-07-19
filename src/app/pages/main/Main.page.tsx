@@ -1,5 +1,4 @@
 import { Link } from '#libs/router';
-import { useAtom } from 'jotai';
 import { useEffect } from 'react';
 import Logo from '../../assets/logo.svg';
 import viteLogoUrl from '../../assets/vite.png';
@@ -7,7 +6,7 @@ import { useSampleStore } from '../../stores/sample.store.ts';
 import styles from './Main.page.module.scss';
 
 export const MainPage: React.FC = (): React.ReactElement => {
-	const {message, setStatus} = useSampleStore();
+	const { message, setStatus } = useSampleStore();
 
 	// effects
 	useEffect(() => {
