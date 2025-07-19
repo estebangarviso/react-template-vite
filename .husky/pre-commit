@@ -1,1 +1,2 @@
 pnpm run format
+echo "[husky] format script completed successfully"
