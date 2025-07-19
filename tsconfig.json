@@ -3,33 +3,33 @@
 	"compilerOptions": {
 		"rootDir": ".",
 		"outDir": "dist",
-
 		"target": "es2020",
 		"module": "preserve",
 		"moduleResolution": "bundler",
 		"resolveJsonModule": true,
-
 		"jsx": "react-jsx",
-		"lib": ["dom", "es2024"],
-		"types": ["vite/client", "@testing-library/jest-dom"],
-
+		"lib": [
+			"dom",
+			"es2024"
+		],
+		"types": [
+			"vite/client",
+			"@testing-library/jest-dom"
+		],
 		"incremental": true,
 		"sourceMap": true,
 		"declaration": false,
 		"declarationMap": false,
 		"noEmit": true,
-
 		"isolatedModules": true,
 		"esModuleInterop": false,
 		"importHelpers": false,
 		"allowSyntheticDefaultImports": true,
 		"allowImportingTsExtensions": true,
-
 		"strict": true,
 		"noUnusedLocals": false,
 		"noUnusedParameters": false,
 		"strictPropertyInitialization": false,
-
 		"skipLibCheck": true
 	},
 	"include": [
@@ -38,7 +38,7 @@
 		"vite.config.ts",
 		"vitest.config.ts",
 		"unocss.config.ts",
-        "vitest.setup.ts",
-        "__mocks__"
+		"commitlint.config.ts",
+		"__mocks__"
 	]
 }
