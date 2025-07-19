@@ -32,6 +32,13 @@ export default {
 			},
 		},
 	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: `$font-family: ${FONT_FAMILY};`,
+			},
+		},
+	},
 	plugins: [
 		checker({
 			enableBuild: true,
