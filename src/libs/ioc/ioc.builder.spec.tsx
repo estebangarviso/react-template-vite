@@ -1,66 +1,104 @@
-import { render, renderHook, screen } from '@testing-library/react';
-import { describe, expect, test } from 'vitest';
+import { cleanup, render, renderHook, screen } from '@testing-library/react';
+import { beforeEach, describe, expect, test } from 'vitest';
 import { createContainer } from './ioc.builder.tsx';
 
-describe(createContainer, () => {
-	// container creation
-	const { InversionOfControlProvider, container, useInjection } =
-		createContainer();
-	// tokens
+type IocContainer = ReturnType<typeof createContainer>;
+
+describe('createContainer', () => {
+	// note: The container is created once for the entire test suite.
+	// While using `beforeEach` for isolation is often preferred, this structure
+	// mirrors the original test setup and avoids potential scoping issues
+	// with the test runner's environment.
+	let ioc: IocContainer;
+
+	// define common tokens and dependencies
 	const TEST_TOKEN = 'test_token';
-	// dependencies
 	const fn = () => 'test';
 	class TestClass {
 		test() {
 			return 'test';
 		}
 	}
-	// binding
-	container.bind(TEST_TOKEN, fn);
-	container.bind(TestClass, new TestClass());
 
-	// tests
-	test('useInjection returns dependency by token', () => {
-		const {
-			result: { current },
-		} = renderHook(() => useInjection<typeof fn>(TEST_TOKEN));
-
-		expect(current()).toBe('test');
+	// before each test, we reset the container to ensure a clean state.
+	beforeEach(() => {
+		cleanup();
+		// reset the container before each test
+		ioc = createContainer();
 	});
 
-	test('useInjection returns dependency by class', () => {
-		const {
-			result: { current },
-		} = renderHook(() => useInjection(TestClass));
+	test('useInjection should resolve a dependency by token from the global container', () => {
+		const { container, useInjection } = ioc;
+		container.bind(TEST_TOKEN, fn);
+		// test the hook's fallback to the default global store.
+		const { result } = renderHook(() =>
+			useInjection<typeof fn>(TEST_TOKEN),
+		);
 
-		expect(current.test()).toBe('test');
+		expect(result.current).toBe(fn);
+		expect(result.current()).toBe('test');
 	});
 
-	test('InversionOfControlProvider replace the inner container', () => {
+	test('useInjection should resolve a dependency by class from the global container', () => {
+		const { container, useInjection } = ioc;
+		container.bind(TestClass, new TestClass());
+		const { result } = renderHook(() => useInjection(TestClass));
+		expect(result.current.test()).toBe('test');
+	});
+
+	test('InversionOfControlProvider should provide an isolated container that overrides the global one', () => {
+		const { InversionOfControlProvider, container, useInjection } = ioc;
+		container.bind(TestClass, new TestClass());
 		const TestComponent = ({ id }: { id: string }) => {
 			const provider = useInjection(TestClass);
 			return <h1 data-testid={id}>{provider?.test()}</h1>;
 		};
-		const TestContainer = () => {
-			return (
-				<>
-					<TestComponent id='c1' />
-					<InversionOfControlProvider values={new Map()}>
-						<TestComponent id='c2' />
-					</InversionOfControlProvider>
-					<TestComponent id='c3' />
-				</>
-			);
+
+		render(
+			<>
+				{/* This component uses the global container */}
+				<TestComponent id='outside-before' />
+				{/* This provider creates an empty, isolated scope */}
+				<InversionOfControlProvider values={new Map()}>
+					<TestComponent id='inside-isolated' />
+				</InversionOfControlProvider>
+				{/* This component also uses the global container */}
+				<TestComponent id='outside-after' />
+			</>,
+		);
+
+		// assert that the components outside the provider resolve the global dependency
+		expect(screen.getByTestId('outside-before')).toHaveTextContent('test');
+		expect(screen.getByTestId('outside-after')).toHaveTextContent('test');
+
+		// assert that the component inside the isolated provider does not find the dependency
+		expect(screen.getByTestId('inside-isolated')).toHaveTextContent('');
+	});
+
+	test('InversionOfControlProvider should allow providing initial values to an isolated container', () => {
+		const { InversionOfControlProvider, useInjection } = ioc;
+		class OverriddenTestClass {
+			test() {
+				return 'overridden';
+			}
+		}
+		// define the dependencies for the isolated scope
+		const initialValues = new Map();
+		initialValues.set(TestClass, new OverriddenTestClass());
+
+		const TestComponent = () => {
+			const provider = useInjection(TestClass);
+			return <h1>{provider.test()}</h1>;
 		};
 
-		render(<TestContainer />);
+		// render the component inside the provider with the specific initial values
+		render(
+			<InversionOfControlProvider values={initialValues}>
+				<TestComponent />
+			</InversionOfControlProvider>,
+		);
 
-		const c1 = screen.getByTestId('c1');
-		const c2 = screen.getByTestId('c2');
-		const c3 = screen.getByTestId('c3');
-
-		expect(c1).toHaveTextContent('test');
-		expect(c2).toHaveTextContent('');
-		expect(c3).toHaveTextContent('test');
+		// assert that the component resolves the dependency from the isolated provider
+		expect(screen.getByRole('heading')).toHaveTextContent('overridden');
 	});
 });
